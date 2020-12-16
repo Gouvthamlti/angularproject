@@ -1,0 +1,27 @@
+
+<br><br>
+<mat-card style="background-color: lightcyan;">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search By Name"
+            style="width:300px" [(ngModel)]="searchTerm" />
+  </div>
+  <mat-nav-list>
+  
+    <mat-list-item *ngFor="let contact of contacts | namelist:searchTerm">
+      <h4 mat-line>{{ contact.name }}</h4>
+      <p mat-line>{{ contact.number }}</p>
+      <button mat-icon-button (click)="delete(contact)"
+        matTooltip="Delete Contact" matTooltipPosition="above">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-nav-list>
+  <button type="button" (click)="add()" class="btn btn-info">Add Contacts</button>
+  <!-- <button mat-fab 
+  matTooltip="Add Contact" matTooltipPosition="above">
+  Add Contacts
+</button> -->
+</mat-card>
+
+
+  
